@@ -37,8 +37,8 @@ const LocaleLayout = async ({
   const locale = await getLocaleOnServer()
 
   const datasetMap: Record<DatasetAttr, string | undefined> = {
-    [DatasetAttr.DATA_API_PREFIX]: process.env.NEXT_PUBLIC_API_PREFIX,
-    [DatasetAttr.DATA_PUBLIC_API_PREFIX]: process.env.NEXT_PUBLIC_PUBLIC_API_PREFIX,
+    [DatasetAttr.DATA_API_PREFIX]: '/console/api',
+    [DatasetAttr.DATA_PUBLIC_API_PREFIX]: '/api',
     [DatasetAttr.DATA_MARKETPLACE_API_PREFIX]: process.env.NEXT_PUBLIC_MARKETPLACE_API_PREFIX,
     [DatasetAttr.DATA_MARKETPLACE_URL_PREFIX]: process.env.NEXT_PUBLIC_MARKETPLACE_URL_PREFIX,
     [DatasetAttr.DATA_PUBLIC_EDITION]: process.env.NEXT_PUBLIC_EDITION,
