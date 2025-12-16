@@ -30,17 +30,19 @@ export function encryptField(plaintext: string): string {
 /**
  * Encrypt password field for login
  * @param password - Plain password
- * @returns Encrypted password or original if encryption disabled
+ * @returns Password (encryption disabled - API doesn't support decryption yet)
  */
 export function encryptPassword(password: string): string {
-  return encryptField(password)
+  // Return plain password - API doesn't have decryption enabled
+  return password
 }
 
 /**
  * Encrypt verification code for email code login
  * @param code - Plain verification code
- * @returns Encrypted code or original if encryption disabled
+ * @returns Code (encryption disabled - API doesn't support decryption yet)
  */
 export function encryptVerificationCode(code: string): string {
-  return encryptField(code)
+  // Return plain code - API doesn't have decryption enabled
+  return code
 }
