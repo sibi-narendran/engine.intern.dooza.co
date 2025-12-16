@@ -139,6 +139,28 @@ const nextConfig = {
       },
     ]
   },
+  async rewrites() {
+    const apiUrl = process.env.CONSOLE_API_URL || process.env.NEXT_PUBLIC_API_PREFIX?.replace('/console/api', '') || ''
+    if (!apiUrl) return []
+    return [
+      {
+        source: '/console/api/:path*',
+        destination: `${apiUrl}/console/api/:path*`,
+      },
+      {
+        source: '/api/:path*',
+        destination: `${apiUrl}/api/:path*`,
+      },
+      {
+        source: '/v1/:path*',
+        destination: `${apiUrl}/v1/:path*`,
+      },
+      {
+        source: '/files/:path*',
+        destination: `${apiUrl}/files/:path*`,
+      },
+    ]
+  },
   output: 'standalone',
   compiler: {
     removeConsole: isDev ? false : { exclude: ['warn', 'error'] },
