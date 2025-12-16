@@ -47,16 +47,9 @@ const getStringConfig = (
   return defaultValue
 }
 
-export const API_PREFIX = getStringConfig(
-  process.env.NEXT_PUBLIC_API_PREFIX,
-  DatasetAttr.DATA_API_PREFIX,
-  'http://localhost:5001/console/api',
-)
-export const PUBLIC_API_PREFIX = getStringConfig(
-  process.env.NEXT_PUBLIC_PUBLIC_API_PREFIX,
-  DatasetAttr.DATA_PUBLIC_API_PREFIX,
-  'http://localhost:5001/api',
-)
+// Force relative API paths for gateway proxy setup
+export const API_PREFIX = '/console/api'
+export const PUBLIC_API_PREFIX = '/api'
 export const MARKETPLACE_API_PREFIX = getStringConfig(
   process.env.NEXT_PUBLIC_MARKETPLACE_API_PREFIX,
   DatasetAttr.DATA_MARKETPLACE_API_PREFIX,
