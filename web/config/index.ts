@@ -153,7 +153,8 @@ const COOKIE_DOMAIN = getStringConfig(
 ).trim()
 export const CSRF_COOKIE_NAME = () => {
   if (COOKIE_DOMAIN) return 'csrf_token'
-  const isSecure = API_PREFIX.startsWith('https://')
+  // Check if the current page is served over HTTPS (not API_PREFIX, which is now relative)
+  const isSecure = typeof window !== 'undefined' && window.location.protocol === 'https:'
   return isSecure ? '__Host-csrf_token' : 'csrf_token'
 }
 export const CSRF_HEADER_NAME = 'X-CSRF-Token'
